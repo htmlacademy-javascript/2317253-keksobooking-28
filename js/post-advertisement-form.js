@@ -8,6 +8,7 @@ import {resetMapFiltersForm} from './map-points-sort.js';
 import {resetPreviews} from './advertisement-form-change-picture-preview.js';
 
 const SubmitButtonText = {
+  BLOCKED: 'blocked',
   IDLE: 'Опубликовать',
   SENDING: 'Опубликовывается...'
 };
@@ -17,7 +18,7 @@ const submitButton = advertisementForm.querySelector('button[type="submit"]');
 const resetButton = advertisementForm.querySelector('button[type="reset"]');
 
 const toggleSubmitBtn = (state) => {
-  if (state === 'blocked') {
+  if (state === SubmitButtonText.BLOCKED) {
     submitButton.disabled = true;
     submitButton.textContent = SubmitButtonText.SENDING;
   } else {

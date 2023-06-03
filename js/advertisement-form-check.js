@@ -9,6 +9,8 @@ const MinPriceByType = {
 const MIN_TITLE_LENGTH = 30;
 const MAX_TITLE_LENGTH = 100;
 const MAX_PRICE_VALUE = 100000;
+const MAX_GUESTS_PER_ROOM = 100;
+const MIN_GUESTS_PER_ROOM = 0;
 
 const advertisementForm = document.querySelector('.ad-form');
 const avatarFileInput = advertisementForm.querySelector('#avatar');
@@ -123,7 +125,7 @@ const validateGuestsAndRooms = () => {
     return false;
   }
 
-  if ((roomsCount < 100 && guestsCount === 0) || (roomsCount >= 100 && guestsCount !== 0)) {
+  if ((roomsCount < MAX_GUESTS_PER_ROOM && guestsCount === MIN_GUESTS_PER_ROOM) || (roomsCount >= MAX_GUESTS_PER_ROOM && guestsCount !== MIN_GUESTS_PER_ROOM)) {
     guestsAndRoomsErrorMessage = 'От 100 комнат — «не для гостей».';
     return false;
   }
